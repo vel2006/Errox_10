@@ -5,6 +5,7 @@
   <p>import io</p>
   <p>from PIL import Image, ImageTk</p>
   <p>import random</p>
+  <p>import sys</p>
   <p> </p>
   <p>class BouncingPopup:</p>
   <p>    def __init__(self, root, embedded_image, screen_width, screen_height):</p>
@@ -24,6 +25,7 @@
   <p>        self.screen_width = screen_width</p>
   <p>        self.screen_height = screen_height</p>
   <p>        self.move_popup()</p>
+  <p>        self.popup.protocol("WM_DELETE_WINDOW", self.on_close)</p>
   <p> </p>
   <p>    def move_popup(self):</p>
   <p>        self.x += self.dx</p>
@@ -34,6 +36,9 @@
   <p>            self.dy = -self.dy</p>
   <p>        self.popup.geometry(f"+{self.x}+{self.y}")</p>
   <p>        self.popup.after(20, self.move_popup)</p>
+  <p>    def on_close(self):</p>
+  <p>        self.popup.destroy()</p>
+  <p>        sys.exit()</p>
   <p> </p>
   <p>def create_multiple_popups(embedded_image, num_popups):</p>
   <p>    root = tk.Tk()</p>
