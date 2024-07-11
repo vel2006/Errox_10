@@ -3,7 +3,7 @@
     <p>@echo off</p>
     <p>set /a cur=1</p>
     <p>:loop</p>
-    <p>tasklist | findstr /i "Terminal" > nul</p>
+    <p>tasklist | findstr /i "CHANGEME" > nul</p>
     <p>if %errorlevel% == 0 (</p>
     <p>    timeout /t 2 /nobreak > nul</p>
     <p>    goto :loop</p>
