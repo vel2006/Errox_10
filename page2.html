@@ -9,8 +9,6 @@
     <p>    timeout /t 2 /nobreak > nul</p>
     <p>    goto :loop</p>
     <p>) else (</p>
-    <p>    if exist "C:\Users\%USERNAME%\Documents\Bordie.py" (</p>
-    <p>        cd "C:\Users\%USERNAME%\Documents"</p>
     <p>        for /L %%i in (1, 1, %cur%) do (</p>
     <p>            start "shell" python .\Bordie.py</p>
     <p>        )</p>
