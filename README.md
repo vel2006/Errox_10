@@ -3,13 +3,15 @@ Well, here is a guide to each page and what they are for.
 
 
 #---------USE-------#
+
 WINDOWS---#---WINDOWS
-  Windows.html:
-    Used for holding the code for the main file that allows connection on the client side.
-  Windows_Per.html:
-    Used for holding the code for a file to maintain usage of Errox_10, even if Errox_10's main file is deleted, this will remain in the system and reinstall Errox_10.
+Windows.html:
+  Used for holding the code for the main file that allows connection on the client side.
+Windows_Per.html:
+  Used for holding the code for a file to maintain usage of Errox_10, even if Errox_10's main file is deleted, this will remain in the system and reinstall Errox_10.
 
 #---DO NOT USE---#
+
 page.html:
   For creating the main file used in testing Errox_10's instalation
 page2.html:
