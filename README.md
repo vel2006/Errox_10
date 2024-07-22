@@ -3,7 +3,7 @@
 # Special Thanks To:
 ## BorderDestroyer, ARussianSpy, and Ott3r
 BorderDestroyer has worked with me by running the several tests of software versions to make this all possible. I personally love his streams and he is my insperation to keep doing all this, he is the reason I even want to log onto my computer every day and try to outdo myself. Even with all the shit I give him in his Discord about his code, I simply wouldnt be where I am without him. Thank you Border. 
-ARussianSpy has worked with me by testing the software before I send it to BorderDestroyer for it's public showings. They have been helping me by easing my anxiety by telling me what I need to fix, or if it is perfectly fine. I also wouldnt be able to make the programs I have without their help. Ott3r has tested my software for its instalation and helped by ironing out all the flukes in my software by showing it running publicly before I sent it to BorderDestroyer.
+ARussianSpy has worked with me by testing the software before I send it to BorderDestroyer for it's public showings. They have been helping me by easing my anxiety by telling me what I need to fix, or if it is perfectly fine. I also wouldnt be able to make the programs I have without their help. Thank you Russian Spy. Ott3r has tested my software for its instalation and helped by ironing out all the flukes in my software by showing it running publicly before I sent it to BorderDestroyer. Thank you Ott3r. And finnaly, I would like to say, Thank you to my cybersecurity teacher, who has made Cybersecurity so easy to understand and enjoy. Thank you Mr Reeder. So, thank you Border, ARussianSpy, Ott3r, and Mr Reeder.
 
 Their socials:
 1) BorderDestroyer:
