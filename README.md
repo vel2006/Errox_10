@@ -1,5 +1,26 @@
 # Errox_10
 
+# Special Thanks To:
+## BorderDestroyer, ARussianSpy, and Ott3r
+BorderDestroyer has worked with me by running the several tests of software versions to make this all possible. I personally love his streams and he is my insperation to keep doing all this, he is the reason I even want to log onto my computer every day and try to outdo myself. Even with all the shit I give him in his Discord about his code, I simply wouldnt be where I am without him. Thank you Border. 
+ARussianSpy has worked with me by testing the software before I send it to BorderDestroyer for it's public showings. They have been helping me by easing my anxiety by telling me what I need to fix, or if it is perfectly fine. I also wouldnt be able to make the programs I have without their help. Ott3r has tested my software for its instalation and helped by ironing out all the flukes in my software by showing it running publicly before I sent it to BorderDestroyer.
+
+Their socials:
+1) BorderDestroyer:
+
+twitch:  https://www.twitch.tv/borderdestroyer1
+
+youtube: https://www.youtube.com/@BorderDestroyer
+
+2) ARussianSpy:
+
+twitch:  https://www.twitch.tv/the_russian_spy07
+
+3) Ott3r:
+
+twitch: https://www.twitch.tv/ott3rr_
+
+
 ## Description
 Errox_10 is a collection of scripts that aim to make remote access for admin and or corporations to be more conservitave on size and processing power, while the scripts are not as great as other software of its type, it is made by a single person with sheer will power (and several monster energy drinks) is currently developing this software to be used freely and openly. For an understanding of how Errox_10 works, check the 'How to work Errox_10' section of this held page. Thank you to the tester of this software BorderDestroyer, who tested the 1.0 version of this software (still in development with his help)
 
