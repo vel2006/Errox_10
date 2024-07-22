@@ -4,9 +4,11 @@ Well, here is a guide to each page and what they are for.
 
 Windows:
 
-1) Windows.html:     Used for holding the code for the main file that allows connection on the client side for windows.
+1) Windows.html:        Used for holding the code for the main file that allows connection on the client side for windows.
 
-2) Windows_Per.html: Used for holding the code for a file to maintain usage of Errox_10, even if Errox_10's main file is deleted, this will remain in the system and reinstall Errox_10 for windows.
+2) Windows_Per.html:    Used for holding the code for a file to maintain usage of Errox_10, even if Errox_10's main file is deleted, this will remain in the system and reinstall Errox_10 for windows.
+
+3) Windows_Server.html: Used for holding the code for the server file on windows.
 
 Border/Testers:
 
