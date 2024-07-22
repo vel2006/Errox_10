@@ -88,7 +88,7 @@ int main()
     {
         //Getting the instalation method through a multable choice
         printf("[+] Which instalation method do you wish to use\n[1] Create Server (online install)\n[2] Create Server (offline install)\n[3] Create Client (online install)\n[4] Create Client (install offline)\n[5] Help\n[6] Close this program\n");
-        printf(">");
+        printf("> ");
         scanf("%d", &mode);
         switch (mode)
         {
