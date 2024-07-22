@@ -20,6 +20,10 @@ twitch:  https://www.twitch.tv/the_russian_spy07
 
 twitch: https://www.twitch.tv/ott3rr_
 
+4) Mr Reeder:
+
+Nah, I dont have permition to place anything of his here. Thank you still.
+
 
 ## Description
 Errox_10 is a collection of scripts that aim to make remote access for admin and or corporations to be more conservitave on size and processing power, while the scripts are not as great as other software of its type, it is made by a single person with sheer will power (and several monster energy drinks) is currently developing this software to be used freely and openly. For an understanding of how Errox_10 works, check the 'How to work Errox_10' section of this held page. Thank you to the tester of this software BorderDestroyer, who tested the 1.0 version of this software (still in development with his help)
