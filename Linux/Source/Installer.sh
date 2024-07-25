@@ -25,11 +25,13 @@ while true; do
 	case $input in
 		1)
 			DownloadFromWeb "https://vel2006.github.io/Linux_Server.html" "Errox_10_Server"
+                        ;;
 		2)
 			#CREATE FILE#
 		3)
 			DownloadFromWeb "https://vel2006.github.io/Linux_Client.html" "Errox_10_Client"
 			DownloadFromWeb "https://vel2006.github.io/Linux_Per.html" "Errox_10_Per.sh"
+                        ;;
 		4)
 			#CREATE FILE#
 		5)
