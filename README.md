@@ -8,17 +8,17 @@ ARussianSpy has worked with me by testing the software before I send it to Borde
 Their socials:
 1) BorderDestroyer:
 
-twitch:  https://www.twitch.tv/borderdestroyer1
+twitch:  "https://www.twitch.tv/borderdestroyer1"
 
-youtube: https://www.youtube.com/@BorderDestroyer
+youtube: "https://www.youtube.com/@BorderDestroyer"
 
 2) ARussianSpy:
 
-twitch:  https://www.twitch.tv/the_russian_spy07
+twitch:  "https://www.twitch.tv/the_russian_spy07"
 
 3) Ott3r:
 
-twitch: https://www.twitch.tv/ott3rr_
+twitch: "https://www.twitch.tv/ott3rr_"
 
 4) Mr Reeder:
 
