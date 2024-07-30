@@ -20,7 +20,7 @@ twitch:  "https://www.twitch.tv/the_russian_spy07"
 
 twitch: "https://www.twitch.tv/ott3rr_"
 
-4) Cybersecurity Teacher:
+4) Cybersecurity Teacher: 
 
 Nah, I dont have permition to place anything of his here. Thank you still.
 
