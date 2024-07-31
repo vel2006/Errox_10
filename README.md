@@ -10,6 +10,10 @@ Windows:
 
 3) Windows_Server.html: Used for holding the code for the server file on windows.
 
+Linux:
+
+1) Linux_Client_Updater.html: Used for holding the code for the newest version of Errox_10_Client.sh
+
 Border/Testers:
 
 1) page.html:  For creating the main file used in testing Errox_10's instalation
