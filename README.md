@@ -46,4 +46,6 @@ Older versions:
 1) Remote shell access to Windows 11 and Linux systems.
 
 ## Updates to come
-1) MAC and Apple products support
+1) World Wide Connection support
+2) MACOS support
+3) OpenBSD support
