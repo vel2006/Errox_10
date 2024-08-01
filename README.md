@@ -49,3 +49,4 @@ Older versions:
 1) World Wide Connection support
 2) MACOS support
 3) OpenBSD support
+4) WebOS support
