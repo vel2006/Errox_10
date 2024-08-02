@@ -1,0 +1,37 @@
+<html>
+<body>
+<p>import requests</p>
+<p>import platform</p>
+<p>import socket</p>
+<p>import getpass</p>
+<p>import subprocess</p>
+<p>def GetDeviceInformation():</p>
+<p>	information = []</p>
+<p>	result = (requests.get("https://ipinfo.io/json")).json()</p>
+<p>	information.append(f"Current user: {getpass.getuser()}")</p>
+<p>	information.append(f"City: {result.get('city')}")</p>
+<p>	information.append(f"Region: {result.get('region')}")</p>
+<p>	information.append(f"Zip-code: {result.get('postal')}")</p>
+<p>	information.append(f"Private hostname: {socket.gethostname()}")</p>
+<p>	information.append(f"Private IP: {socket.gethostbyname(socket.gethostname())}")</p>
+<p>	information.append(f"Public IP: {result.get('ip')}")</p>
+<p>	result2 = subprocess.run(['netsh', 'wlan', 'show', 'interfaces'], capture_output=True, text=True, check=True)</p>
+<p>	for line in result2.stdout.split('\n'):</p>
+<p>		if 'SSID' in line and 'BSSID' not in line:</p>
+<p>			ssid = line.split(':')[1].strip()</p>
+<p>	if ssid:</p>
+<p>		information.append(f"SSID: {ssid}")</p>
+<p>	else:</p>
+<p>			information.append("SSID: not found")</p>
+<p>	information.append(f"Internet provider: {result.get('org')}")</p>
+<p>	information.append(f"Platform: {platform.system()}")</p>
+<p>	information.append(f"Device Name: {platform.node()}")</p>
+<p>	information.append(f"Node: {platform.release()}")</p>
+<p>	information.append(f"OS Version: {platform.version()}")</p>
+<p>	information.append(f"Machiene Architecture: {platform.machine()}")</p>
+<p>	information.append(f"Processor: {platform.processor()}")</p>
+<p>	return information</p>
+<p>with open("info.txt", 'a') as file:</p>
+<p>	file.write(str(GetDeviceInformation()))</p>
+</body>
+</html>
